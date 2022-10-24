@@ -9,6 +9,7 @@ const postRecipes = require("./controllers/postRecipes");
 
 const getRecipeByName = async (title) => {
   try {
+    await getAllInfo();
     const info = await Recipe.findAll({
       attributes: ["title"],
       where: {
@@ -86,16 +87,17 @@ router.post("/recipes", async (req,res) => {
 //     res.status(404).send("The recipe already exist")
 //   }
 // });
-const { id, title, summary, healthScore, image, steps, diets, name} = req.body;
+const { title, summary, healthScore, image, steps, diets} = req.body;
 try {
   if(!title || !summary || !healthScore || !image || !steps){
 
     const recipePost = await Recipe.create({
-      id,
+      
       title,
       summary,
       healthScore,
       image,
+      diets
       
     })
     let dietsDb = await Type.findAll({ attributes: ["name"] })

@@ -22,18 +22,23 @@ module.exports = (sequelize) => {
     },
     summary: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
+      defaultValue: "There is no summary here"
     },
     healthScore: {
-      type: DataTypes.INTEGER,
-      allowNull: true
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: "There is no healthScore here"
     },
     steps: {
-      type: DataTypes.ARRAY(DataTypes.JSON),
-      allowNull: true
+      type: DataTypes.TEXT,
+      // type: DataTypes.ARRAY(DataTypes.JSON),
+      allowNull: true,
+      defaultValue: "There is no steps"
     },
     image: {
       type: DataTypes.STRING,
+      defaultValue: "There is no image"
     }
   });
 };

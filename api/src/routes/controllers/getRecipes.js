@@ -12,13 +12,8 @@ const getRecipes = async () => {
       summary: e.summary,
       healthScore: e.healthScore,
       image: e.image,
-      steps: e.analyzedInstructions[0]?.steps.map((a)=>{
-        return {
-          number: a.number,
-          step: a.step
-        }
-      }),
-      
+      steps: (e.analyzedInstructions[0] && e.analyzedInstructions[0].steps?e.analyzedInstructions[0].steps.map((a)=> a.step).join(" || "): "There is no steps"),
+      diets: e.diets? e.diets.map((diet) => diet) : "This one has no kind of diet"
     }
   })
   return allInfo;
