@@ -5,7 +5,6 @@ require("dotenv").config();
 
 const getRecipes = async () => {
   const apiInfo = await axios.get(`${URL}complexSearch?apiKey=${YOUR_API_KEY}&number=10&addRecipeInformation=true`);
-  // const apiInfo = await axios.get();
   const allInfo = apiInfo.data.results.map((e)=>{
     return {
       id: e.id,

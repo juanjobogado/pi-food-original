@@ -5,6 +5,7 @@ const getRecipeById = require("./controllers/getRecipeById");
 const getAllInfo = require("./controllers/getAllInfo");
 const { Recipe, Type } = require("../db");
 const { Op } = require("sequelize");
+const postRecipes = require("./controllers/postRecipes");
 
 const getRecipeByName = async (title) => {
   try {
@@ -76,6 +77,36 @@ router.get("/recipes/:id", async (req,res) => { // LO QUE VA EN :ID TIENE QUE SE
 });
 
 router.post("/recipes", async (req,res) => {
+  
+//   try {
+//     const newPost = await postRecipes();
+//   res.status(200).send(newPost);
+//   } catch (error) {
+//     console.log(error.message)
+//     res.status(404).send("The recipe already exist")
+//   }
+// });
+const { id, title, summary, healthScore, image, steps, diets, name} = req.body;
+try {
+  if(!title || !summary || !healthScore || !image || !steps){
+
+    const recipePost = await Recipe.create({
+      id,
+      title,
+      summary,
+      healthScore,
+      image,
+      
+    })
+    let dietsDb = await Type.findAll({ attributes: ["name"] })
+    recipePost.addType(dietsDb);
+  
+    return res.status(200).send( recipePost);
+  }
+} catch (error) {
+  console.log(error.message);
+  return res.status(404).send("Recipe already exist")
+}
 
 });
 
