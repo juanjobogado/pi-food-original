@@ -7,55 +7,61 @@ const { Recipe, Type } = require("../db");
 const { Op } = require("sequelize");
 const postRecipes = require("./controllers/postRecipes");
 
-const getRecipeByName = async (title) => {
-  try {
-    await getAllInfo();
-    const info = await Recipe.findAll({
-      attributes: ["title"],
-      where: {
-        title: {[Op.iLike]: `%${title}%`}
-      },
-      include: {
-        model: Type,
-        attributes: ["name"],
-        through: {
-          attributes: []
-        }
-      }
-    })
+// const getRecipeByName = async (title) => {
+//   try {
+//     await getAllInfo();
+//     const info = await Recipe.findAll({
+//       attributes: ["title"],
+//       where: {
+//         title: {[Op.iLike]: `%${title}%`}
+//       },
+//       include: {
+//         model: Type,
+//         attributes: ["name"],
+//         through: {
+//           attributes: []
+//         }
+//       }
+//     })
 
-    const recipes = info.map(receta => ({
-      id: receta.id,
-      title: receta.title,
-      image: receta.image,
-      healthScore: receta.healthScore,
-      // steps: receta.analyzedInstructions[0]?.steps.map((a)=>{
-      //   return {
-      //     number: a.number,
-      //     step: a.step
-      //   }
-      // }),
-      summary: receta.summary,
+//     const recipes = info.map(receta => ({
+//       id: receta.id,
+//       title: receta.title,
+//       image: receta.image,
+//       healthScore: receta.healthScore,
+//       // steps: receta.analyzedInstructions[0]?.steps.map((a)=>{
+//       //   return {
+//       //     number: a.number,
+//       //     step: a.step
+//       //   }
+//       // }),
+//       summary: receta.summary,
   
-  }))
+//   }))
 
-  return recipes;
-  } catch (error) {
-    console.log(error)
-  }
- };
+//   return recipes;
+//   } catch (error) {
+//     console.log(error)
+//   }
+//  };
 
 router.get("/recipes", async (req,res) => {
-  const { title } = req.query;
+  
     try {
       // await getRecipesToDb();
-      if(!title){
-        const apiInfo = await getAllInfo();
-        return res.status(200).send(apiInfo);  
+      const { title } = req.query;
+      const recipes = await getAllInfo();
+      if(title){
+        const recipesByName = recipes?.filter(
+          (r) => r.title.toLowerCase() === title.toLowerCase()
+        );
+        recipesByName.length > 0 ? res.status(200).json(recipesByName) : res.send("No recipes found");
+        // return res.status(200).send(recipes);  
           
     }  else{
-      const filteredNames = await getRecipeByName(title);
-      res.status(200).send(filteredNames);
+      // const filteredNames = await getRecipeByName(title);
+      // res.status(200).send(filteredNames);
+      res.status(200).json(recipes);
     }
     }catch (error) {
       // console.log(error.message);

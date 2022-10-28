@@ -28,6 +28,10 @@ const getRecipesToDb = async () => {
       let recipesDb = await Recipe.findAll({
         include: { model: Type },
       });
+      if (!recipesDb.length) {
+        const apiInfo = await getRecipes();
+        await Recipe.bulkCreate(apiInfo);
+      }
       return recipesDb;
     } catch (error) {
       console.log(error);
