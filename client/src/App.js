@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch} from "react-router-dom";
 import LandingPage from './components/LadingPage/LandingPage';
 import Home from './components/Home/Home';
 
+
+
 function App() {
   return (
     <BrowserRouter>

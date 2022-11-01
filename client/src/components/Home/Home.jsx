@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import {Link} from 'react-router-dom';
 import { getRecipes } from "../../redux/actions";
 import Card from "../Card/Card";
 import {useSelector, useDispatch} from "react-redux"
 import Pagination from "../Pagination/Pagination";
-import SearchBar from "../SearchBar/SearchBar";
+import NavBar from "../NavBar/NavBar";
+import { filterRecipesByType } from "../../redux/actions";
+
 
 export default function Home(){
   const dispatch = useDispatch();
@@ -24,6 +28,12 @@ export default function Home(){
     dispatch(getRecipes());
   }, [dispatch]);
 
+  function handleFilterType(e){
+    e.preventDefault();
+    dispatch(filterRecipesByType(e.target.value));
+    setCurrentPage(1);
+  }
+
 
   // function handleClick(e) {
 	// 	e.preventDefault();
@@ -35,13 +45,32 @@ export default function Home(){
     <div>
       <h1>Juanjitus</h1>
       {/* <button onClick={e => {handleClick(e)}}>Cargar las recetas</button> */}
-      <SearchBar/>
+      <div>
+      <NavBar pagination={pagination}/>
+      </div>
+      
+        <select onChange={e => handleFilterType(e)}>
+          <option value = "All">Todos</option>
+          <option value = "gluten Free">Gluten Free</option>
+          <option value = "Ketogenic">Ketogenic</option>
+          <option value = "lacto ovo vegetarian">Ovo Lacto Vegetariano</option>
+          <option value = "vegan">Vegano</option>
+          <option value = "pescatarian">Pescetariano</option>
+          <option value = "paleolithic">Paleolitico</option>
+          <option value = "primal">Primal</option>
+          <option value = "fodmap friendly">Fodmap</option>
+          <option value = "Whole 30">Whole 30</option>
+          <option value = "Dairy free">Dairy Free</option>
+          <option value = "Vegetarian">Vegetariano</option>
+          <option value = "Lacto vegetarian">Lacto Vegetariano</option>
+          <option value = "Ovo vegetarian" >Ovo Vegetariano</option>
+        </select>
 
       <Pagination
         recipesPerPage={recipesPerPage}
         allRecipes = {allRecipes?.length}
         pagination = {pagination}
-        currentPage = {currentPage}
+        currentPage = {currentPage} //esto selene NO lo hace.
       />
         
       {
