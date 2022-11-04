@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch} from "react-router-dom";
 import LandingPage from './components/LadingPage/LandingPage';
 import Home from './components/Home/Home';
+import RecipeCreate from "./components/RecipeCreate/RecipeCreate";
 
 
 
@@ -12,6 +13,7 @@ function App() {
       <Switch>
         <Route exact path = "/" component={LandingPage}/>
         <Route exact path = "/home" component = {Home}/>
+        <Route exact path = "/recipes" component={RecipeCreate}/>
       </Switch>
     </div>
     </BrowserRouter>

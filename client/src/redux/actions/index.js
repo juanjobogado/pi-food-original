@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_RECIPES, GET_RECIPES_NAME, FILTER_RECIPES_BY_TYPE, ORDER_RECIPES } from "./actions";
+import { GET_RECIPES, GET_RECIPES_NAME, FILTER_RECIPES_BY_TYPE, ORDER_RECIPES_BY_NAME, ORDER_RECIPES_SCORE, GET_DIETS } from "./actions";
 
 export function getRecipes(){
     return async function(dispatch){
@@ -32,16 +32,7 @@ export function getRecipesName(title){
   };
 
 export function filterRecipesByType(payload){
-  // return async function(dispatch){
-  //   try {
-  //     return dispatch({
-  //       type: FILTER_RECIPES_BY_TYPE,
-  //       payload: types
-  //     })
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+
   return {
     type: FILTER_RECIPES_BY_TYPE,
     payload
@@ -49,15 +40,33 @@ export function filterRecipesByType(payload){
 
 };
 
-export function orderRecipes(order){
-  return async function(dispatch){
-    try {
-      return dispatch({
-        type: ORDER_RECIPES,
-        payload: order
-      })
-    } catch (error) {
-      // console.log(error);
-    }
+export function orderRecipesByName(payload){
+      return {
+        type: ORDER_RECIPES_BY_NAME,
+        payload
+      }
+};
+
+export function orderByScore(payload){
+  return{
+    type: ORDER_RECIPES_SCORE,
+    payload
   }
 };
+
+export function postRecipe(payload){
+  return async function(dispatch){
+    const json = await axios.post("http://localhost:3001/recipes", payload);
+    return json;
+  }
+};
+
+export function getDiets(){
+  return async function(dispatch){
+    const json = await axios.get("http://localhost:3001/diets");
+    return dispatch({
+      type: GET_DIETS,
+      payload: json.data
+    })
+  }
+}

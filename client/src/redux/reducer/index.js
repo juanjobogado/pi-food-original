@@ -1,9 +1,9 @@
-import { FILTER_RECIPES_BY_TYPE, GET_RECIPES, GET_RECIPES_NAME, ORDER_RECIPES } from "../actions/actions";
+import { FILTER_RECIPES_BY_TYPE, GET_DIETS, GET_RECIPES, GET_RECIPES_NAME, ORDER_RECIPES_BY_NAME, ORDER_RECIPES_SCORE, POST_RECIPE } from "../actions/actions";
 
 const initialState = {
 recipes: [],
 allRecipes: [],
-
+diets: []
 };
 
 export default function reducer(state = initialState, action){
@@ -21,6 +21,12 @@ export default function reducer(state = initialState, action){
         ...state,
         recipes: action.payload
       }
+    
+    case GET_DIETS:
+        return {
+            ...state,
+            diets: action.payload
+        }
 
     case FILTER_RECIPES_BY_TYPE:
       const allRecipes = state.allRecipes;
@@ -42,66 +48,61 @@ export default function reducer(state = initialState, action){
           recipes: selectedDiet,                    
       }
       
-      case ORDER_RECIPES:
-        var functionOrdenator
-        switch(action.payload){
-          case "AZ":
-            functionOrdenator = function(a,b){
-              if(a.name.toLowerCase() < b.name.toLowerCase()){
-                return -1
-              }
-              if(a.name.toLowerCase() > b.name.toLowerCase()){
-                return 1
-              }
-              return 0
+      case ORDER_RECIPES_BY_NAME:
+            const recipesByName = state.recipes;
+            const orderedRecipesbyName = recipesByName.sort(function (a,b) {
+                if (action.payload === "asc") {
+                    if ( a.title < b.title ) {
+                        return -1;
+                    } else if ( a.title > b.title ) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                } else if (action.payload === "des") {
+                    if ( a.title > b.title ) {
+                        return -1;
+                    } else if ( a.title < b.title ) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                }
+                return 'Ordered';
+            });
+            return {
+                ...state,
+                recipes: orderedRecipesbyName
             }
-            break; 
-          
-          case "ZA":
-            functionOrdenator = function(a,b){
-              if(a.name.toLowerCase() < b.name.toLowerCase()){
-                return 1
-              }
-              if(a.name.toLowerCase() > b.name.toLowerCase()){
-                return -1
-              }
-               return 0
-            }
-            break;
 
-         case "<HS":
-          functionOrdenator = function(a,b){
-            if(a.healthScore < b.healthScore){
-              return 1
-            }
-            if(a.healthScore > b.healthScore){
-              return -1
-            }
-            return 0
-          }
-          break;
-
-        case ">HS":
-          functionOrdenator = function(a,b){
-            if(a.healthScore < b.healthScore){
-              return -1
-            }
-            if(a.healthScore > b.healthScore){
-              return 1
-            }
-            return 0
-          }
-          break;
-
-        default:
-          break;
-
-        }
-        return {
-          ...state,
-          recipes: state.recipes.sort(functionOrdenator)
-        }
-      
+        case ORDER_RECIPES_SCORE:
+          const orderScore = action.payload === "asc" ?
+                state.recipes.sort(function (a, b) {
+                    if (a.healthScore > b.healthScore) {
+                        return 1;
+                    }
+                    if (b.healthScore > a.healthScore) {
+                        return -1;
+                    }
+                    return 0;
+                }) :
+                state.recipes.sort(function (a, b) {
+                    if (a.healthScore > b.healthScore) {
+                        return -1;
+                    }
+                    if (b.healthScore > a.healthScore) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                return{
+                    ...state,
+                    recipes: orderScore
+                }
+        case POST_RECIPE:
+            return {
+                ...state,
+            }        
   
     default:
       return state;

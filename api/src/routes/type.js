@@ -2,6 +2,22 @@ const Router = require('express');
 const {Recipe, Type} = require('../db.js');
 const router = Router();
 
+// const dietsLocal =  [
+//     {name: "Gluten Free"},
+//     {name: "Ketogenic"},
+//     {name: "Lacto Ovo Vegetarian"},
+//     {name: "Vegan"},
+//     {name: "Pescatarian"},
+//     {name: "Paleolithic"},
+//     {name: "Primal"},
+//     {name: "Fodmap Friendly"},
+//     {name: "Whole 30"},
+//     {name: "Dairy free"},
+//     {name: "Vegetarian"},
+//     {name: "Lacto vegetarian"},
+//     {name: "Ovo vegetarian"}                       
+// ];
+
 const dietsLocal =  [
     "Gluten Free",
     "Ketogenic",
@@ -17,6 +33,8 @@ const dietsLocal =  [
     "Lacto vegetarian",
     "Ovo vegetarian"                        
 ];
+
+
 
 router.get("/diets", async (req, res) => {
     try{
