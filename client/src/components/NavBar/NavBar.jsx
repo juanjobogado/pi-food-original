@@ -51,6 +51,11 @@ export default function NavBar({pagination}){
          <SearchBar/>
 
          <button onClick={e => {handleClick(e)}}>Cargar todas las recetas</button>
+            <div>
+             <Link to="/recipes">
+               <button  type="button">Crear receta</button>
+             </Link>
+           </div>
       
       </div>
 
@@ -85,11 +90,7 @@ export default function NavBar({pagination}){
         //     </div>
         //   </div>
           
-        //   <div>
-        //     <Link to="/create" className="createlink">
-        //       <button  className="btn" type="button">Crear receta</button>
-        //     </Link>
-        //   </div>
+       
     
         //   <div>
         //     <SearchBar reset={resetTypesArr} />

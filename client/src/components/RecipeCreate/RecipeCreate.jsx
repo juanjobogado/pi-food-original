@@ -3,10 +3,24 @@ import {Link, useHistory} from "react-router-dom";
 import { postRecipe, getDiets } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
+function validation(input){
+    let errors = {};
+    if(!input.title){
+        errors.name = "Se requiere un nombre"
+    } else if(!input.summary){
+        errors.summary = "Se requiere un resumen"
+    } else if(!input.healthScore){
+        errors.healthScore = "Se requiere un healthScore"
+    } else if(!input.image){
+        errors.image = "Se requiere un resumen"
+    }
+};
+
 export default function RecipeCreate(){
     const dispatch = useDispatch();
     const history = useHistory();
     const diets = useSelector((state) => state.diets);
+    const [errors, setErrors] = useState({});
     
     const [input, setInput] = useState({
         title: "",
@@ -22,6 +36,11 @@ export default function RecipeCreate(){
             ...input,
             [e.target.name] : e.target.value
         })
+        setErrors(validation({
+            ...input,
+            [e.target.name] : e.target.value
+        }))
+        // console.log(input)
     }
     function handleCheck(e){
         if(e.target.checked){
@@ -62,6 +81,9 @@ export default function RecipeCreate(){
                     name = "title"
                     onChange={handleChange}
                     />
+                    {/* {errors?.name && (
+                        <p>{errors.name}</p>
+                    )} */}
                 </div>
                 <div>
                     <label>Resumen:</label>
