@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_RECIPES, GET_RECIPES_NAME, FILTER_RECIPES_BY_TYPE, ORDER_RECIPES_BY_NAME, ORDER_RECIPES_SCORE, GET_DIETS } from "./actions";
+import { GET_RECIPES, GET_RECIPES_NAME, FILTER_RECIPES_BY_TYPE, ORDER_RECIPES_BY_NAME, ORDER_RECIPES_SCORE, GET_DIETS, GET_RECIPES_ID } from "./actions";
 
 export function getRecipes(){
     return async function(dispatch){
@@ -56,8 +56,13 @@ export function orderByScore(payload){
 
 export function postRecipe(payload){
   return async function(dispatch){
-    const json = await axios.post("http://localhost:3001/recipes", payload);
-    return json;
+    try {
+      await axios.post("http://localhost:3001/recipes", payload); 
+    } catch (error) {
+      console.log(error)
+    }
+    // const json = await axios.post("http://localhost:3001/recipes", payload);
+    // return json;
   }
 };
 
@@ -69,4 +74,19 @@ export function getDiets(){
       payload: json.data
     })
   }
-}
+};
+
+export function getRecipesById(id){
+  return async function(dispatch){
+    try {
+      const json = await axios.get(`http://localhost:3001/recipes/${id}`);
+      return dispatch({
+        type: GET_RECIPES_ID,
+        payload: json.data
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+};

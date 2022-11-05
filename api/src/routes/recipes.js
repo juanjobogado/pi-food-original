@@ -141,31 +141,24 @@ router.get("/recipes/:id", async (req,res) => { // LO QUE VA EN :ID TIENE QUE SE
 
 router.post("/recipes", async (req,res) => {
   
-//   try {
-//     const newPost = await postRecipes();
-//   res.status(200).send(newPost);
-//   } catch (error) {
-//     console.log(error.message)
-//     res.status(404).send("The recipe already exist")
-//   }
-// });
-const { title, summary, healthScore, image, steps, diets} = req.body;
+const { steps, title, summary, healthScore, image, diets} = req.body;
 try {
-  if(!title || !summary || !healthScore || !image || !steps){
+  if(!steps || !title || !summary || !healthScore || !image || !steps){
 
     const recipePost = await Recipe.create({
       
+      steps,
       title,
       summary,
       healthScore,
-      image,
-      diets
+    
       
     })
-    let dietsDb = await Type.findAll({ attributes: ["name"] })
+    let dietsDb = await Type.findAll({ 
+      where: {name: diets} })
     recipePost.addType(dietsDb);
   
-    return res.status(200).send( recipePost);
+    return res.status(200).send(recipePost);
   }
 } catch (error) {
   console.log(error.message);

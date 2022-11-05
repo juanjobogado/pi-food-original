@@ -1,9 +1,10 @@
-import { FILTER_RECIPES_BY_TYPE, GET_DIETS, GET_RECIPES, GET_RECIPES_NAME, ORDER_RECIPES_BY_NAME, ORDER_RECIPES_SCORE, POST_RECIPE } from "../actions/actions";
+import { FILTER_RECIPES_BY_TYPE, GET_DIETS, GET_RECIPES, GET_RECIPES_ID, GET_RECIPES_NAME, ORDER_RECIPES_BY_NAME, ORDER_RECIPES_SCORE, POST_RECIPE } from "../actions/actions";
 
 const initialState = {
 recipes: [],
 allRecipes: [],
-diets: []
+diets: [],
+detail: []
 };
 
 export default function reducer(state = initialState, action){
@@ -33,7 +34,7 @@ export default function reducer(state = initialState, action){
 
       const selectedDiet = action.payload === "All" ? allRecipes : allRecipes.filter(e => {
           let diet = "";
-              for(let i=0; i < e.diets.length; i++){
+              for(let i=0; i < e.diets?.length; i++){
                   if(e.diets[i] === action.payload.toLowerCase()){
                       diet = e.diets[i];
                   }                                                                                        
@@ -47,6 +48,12 @@ export default function reducer(state = initialState, action){
           ...state,
           recipes: selectedDiet,                    
       }
+    
+    case GET_RECIPES_ID:
+        return{
+            ...state,
+            detail: action.payload,
+        }
       
       case ORDER_RECIPES_BY_NAME:
             const recipesByName = state.recipes;
