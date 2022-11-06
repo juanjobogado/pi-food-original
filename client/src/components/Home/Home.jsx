@@ -8,7 +8,7 @@ import {useSelector, useDispatch} from "react-redux"
 import Pagination from "../Pagination/Pagination";
 import NavBar from "../NavBar/NavBar";
 import { filterRecipesByType, orderRecipesByName, orderByScore } from "../../redux/actions";
-
+import "./Home.css";
 
 export default function Home(){
   const dispatch = useDispatch();
@@ -59,10 +59,23 @@ export default function Home(){
   
   return (
   
-    <div>
-      <h1>Juanjitus</h1>
-     
+    <div className="containerHome">
+      <div className="bg2">
+
+<div className="head">
+<div className="btnsHome">
       <NavBar pagination={pagination}/>
+      </div>
+  
+</div>
+
+<div className="title">
+      <h1>PI RECIPES</h1>
+  </div>
+     
+    
+
+
       <div>
       
       <select onChange={e => handleFilterType(e)}>
@@ -93,14 +106,16 @@ export default function Home(){
       </select>
       </div>
       
-
+    <div>
       <Pagination
         recipesPerPage={recipesPerPage}
         allRecipes = {allRecipes?.length}
         pagination = {pagination}
         currentPage = {currentPage}
       />
-        
+    </div>
+
+        <div className="cards">
       {
         currentRecipes?.map((c) => (
           <div key={c.id} >
@@ -108,12 +123,24 @@ export default function Home(){
                         <Card
                             title = { c.title }
                             image = { c.image }
-                            diets = { c.diets?.join(", ") }
+                            diets = { typeof c.diets === "string" ? c.diets : c.diets?.join(", ") }
                             />
                             </Link>     
                     </div>
         ))
       }
+      </div>
+
+      <div>
+      <Pagination
+        recipesPerPage={recipesPerPage}
+        allRecipes = {allRecipes?.length}
+        pagination = {pagination}
+        currentPage = {currentPage}
+      />
+    </div>
+
+      </div>
     </div>
   );
 };

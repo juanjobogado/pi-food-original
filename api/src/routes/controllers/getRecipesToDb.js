@@ -24,7 +24,7 @@ const getRecipes = require("./getRecipes");
 // }
 // };
 const getRecipesToDb = async () => {
-  return await Recipe.findAll({
+  let recipes = await Recipe.findAll({
     include: {
       model: Type,
       attributes: ["name"],
@@ -33,5 +33,6 @@ const getRecipesToDb = async () => {
       },
     },
   });
+  return recipes;
 };
 module.exports = getRecipesToDb;

@@ -39,6 +39,9 @@ return (
         <div>
           <img src={recipeDetail[0]?.image} alt="img" className="image" width="370px" height="280px"/>
         </div>
+        <div>
+          <h2>DISH TYPES: {recipeDetail[0]?.dishTypes}</h2>
+        </div>
         <h3>TYPES OF DIETS</h3>
         <div>
           {recipeDetail[0]?.diets?.map((e) => {

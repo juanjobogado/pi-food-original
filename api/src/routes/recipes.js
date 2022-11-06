@@ -151,12 +151,11 @@ try {
       title,
       summary,
       healthScore,
-    
       
     })
     let dietsDb = await Type.findAll({ 
       where: {name: diets} })
-    recipePost.addType(dietsDb);
+      await recipePost.addType(dietsDb);
   
     return res.status(200).send(recipePost);
   }

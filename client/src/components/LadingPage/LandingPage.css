@@ -1,0 +1,48 @@
+.container {
+background-image: url("../images/fondolanding.jpg");
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position: center;
+position: absolute;
+background-attachment: fixed;
+};
+
+.containerlanding{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+  }
+
+  .container h1 {
+    
+    min-width: 500px;
+    margin: 5%;
+    color: rgba(125, 69, 69, 0.968);
+    text-shadow: rgb(52, 51, 51) -4px 2px; 
+    font-size: 60px;
+    margin-bottom: 1%;
+    margin-left: 10%;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+  }
+
+  .btnlandin{
+    margin-top: 4%;
+    margin-left: 5%;
+  }
+
+
+  .btnLan{
+    border-radius: 15px;
+    cursor: pointer;
+      color: rgb(105, 69, 69);
+      border: 4px solid rgb(21, 21, 21) ;
+      font-size: 20px;
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      background-color: rgba(40, 40, 40, 0.216);
+  }
+
+  .btnLan:hover {
+    box-shadow: 0px 0px 30px 1px rgba(184, 161, 160, 0.493);
+  }

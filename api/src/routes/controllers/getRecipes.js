@@ -9,6 +9,7 @@ const getRecipes = async () => {
       id: e.id,
       title: e.title,
       summary: e.summary.replaceAll(/<(“[^”]”|'[^’]’|[^'”>])*>/g, ""),
+      dishTypes: e.dishTypes,
       healthScore: e.healthScore,
       image: e.image,
       steps: (e.analyzedInstructions[0] && e.analyzedInstructions[0].steps?e.analyzedInstructions[0].steps.map((a)=> a.step).join(" || "): "There is no steps"),

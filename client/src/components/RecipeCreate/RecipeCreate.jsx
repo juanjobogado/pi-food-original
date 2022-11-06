@@ -92,6 +92,7 @@ export default function RecipeCreate(){
         dispatch(getDiets());
     }, []);
     console.log(input.steps);
+    console.log(diets)
     return (
         <div>
             <Link to = "/home"><button>Volver</button></Link>
@@ -144,30 +145,32 @@ export default function RecipeCreate(){
 					<ul>
 					    {diets.map((e) => {
 							return (
-			    // 				<li key={e.id}>
-				// 					<input
-				// 						type="checkbox"
-				// 						id={e.id}
-				// 						name={e.name}
-				// 						value={`${e.name}`}
-				// 						onChange={(e) => handleCheck(e)}
-				// 						/>
-				// <label htmlFor={e.id}>{e.name}</label>
-				// 				</li>
-                <label><input
-                key={e.name}
-                type = "checkbox"
-                name = {e.name}
-                value = {e.name}
-                onChange = {(e) => handleCheck(e)}
-                />{e.name}</label>
+			    				<li key={e.id}>
+									<input
+										type="checkbox"
+										id={e.id}
+										name={e.name}
+										value={`${e.name}`}
+										onChange={(e) => handleCheck(e)}
+										/>
+				<label htmlFor={e.id}>{e.name}</label>
+								</li>
+                                
+                // <label><input
+                // key={e.name}
+                // type = "checkbox"
+                // name = {e.name}
+                // value = {e.name}
+                // onChange = {(e) => handleCheck(e)}
+                // />{e.name}</label>
 									);
+                                   
 								})}
 								
 					</ul>
+                    
                
                 </div>
-
                 <button type = "submit">Crear receta...</button>
             </form>
         </div>

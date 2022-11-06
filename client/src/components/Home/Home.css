@@ -1,0 +1,47 @@
+.containerHome {
+    background-image: url("../images/fondohome.jpg");
+    background-color: rgb(49, 49, 49);
+    margin: 0;
+    height: 200%;
+    background-size: cover; 
+    background-position: 200%;
+    background-attachment:fixed;
+    display: inline-block
+    
+    };
+
+    .bg2{
+        background-color: rgba(23, 23, 23, 0.83);
+            backdrop-filter: blur(3px);
+        
+        }
+        
+        /* .head {
+          height: 90px;
+         
+          font-size:55px;
+          margin-top: 0;
+          margin-bottom: 2%;
+          color: rgb(255, 255, 255);
+          font-size: 70px;
+          text-shadow: rgba(218, 17, 17, 0.648) --4px;
+        } */
+        
+         .title h1{   
+          font-size:55px;
+          margin-top: 0;
+          margin-bottom: 2%;
+          color: rgba(125, 69, 69, 0.968);
+          font-size: 40px;
+          font-family: "Comic Sans MS", "Comic Sans", cursive;
+          
+        }
+
+    .cards {
+        display:grid;
+        grid-template-columns: repeat(2, 2fr);
+        align-content: center;
+        align-items:center;
+        width: 100%;
+        margin-bottom: 5%;
+    }
