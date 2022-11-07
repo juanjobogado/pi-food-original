@@ -1,6 +1,7 @@
  import React, {useState} from "react";
  import { useDispatch } from "react-redux";
  import { getRecipesName } from "../../redux/actions";
+import "./SearchBar.css";
 
  function SearchBar(){
    const dispatch = useDispatch();
@@ -23,81 +24,26 @@
 
    return (
      <div>
+      
+    <div className="input-wrapper">
        {/* <form onSubmit={e => handleSubmit(e)}> */}
+  
          <input
+         className="input"
          type = "text"
          // id = "title"
          // value = {title}
          placeholder = "Search Recipe..."
          onChange = {e => handleChange(e)}
          />
-         <button type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
+      <div>
+         <button className="btn" type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
        {/* </form> */}
+      </div>
+
+       </div>
      </div>
    )
  };
 
  export default SearchBar;
-
-// import React, { useEffect } from "react";
-// import { useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { getRecipesName, getRecipes } from "../../redux/actions";
-
-
-
-
-
-// const SearchBar = () => {
-// 	const dispatch = useDispatch();
-// 	const [name, setName] = useState({ name: " " });
-// 	const allRecipes = useSelector(state => state.recipes)
-	
-//   useEffect(() => {
-//     dispatch(getRecipes());
-// },[dispatch])
-
-// 	const handleChange = (e) => {
-// 		e.preventDefault();
-// 		setName(e.target.value);
-		
-// 	};
-// 	const handleSubmit = (e) => {
-// 		e.preventDefault();
-// 		let nameRegex = /^[a-zA-Z]+$/g;
-// 		dispatch(getRecipesName(name));		
-// 		setName(" ");
-// 		document.getElementById("searchForm").reset();
-// 		// console.log(name)
-// 		let res = allRecipes?.filter(e => e.title.toLowerCase().includes(name?.toLowerCase()))
-		
-// 		console.log(res)		
-// 		if(!nameRegex.test(name) || !res?.length ){
-// 		alert("Receta no encontrada")
-// 		}
-// 	};
-
-
-// 	return (
-// 		<div className="inputContainer">
-// 			<div>
-// 				<form id="searchForm">
-// 					<input
-// 						type="text"
-// 						placeholder="Search Recipe"
-// 						onChange={(e) => handleChange(e)}
-// 					/>
-// 					<button
-// 						className="btnSearch"
-// 						type="submit"
-// 						onClick={(e) => handleSubmit(e)}
-// 					>
-// 						Search
-// 					</button>
-// 				</form>
-// 			</div>
-// 		</div>
-// 	);
-// };
-
-// export default SearchBar; 

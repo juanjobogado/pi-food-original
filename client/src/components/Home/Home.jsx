@@ -63,20 +63,18 @@ export default function Home(){
       <div className="bg2">
 
 <div className="head">
-<div className="btnsHome">
-      <NavBar pagination={pagination}/>
+<div>
+      <NavBar className="btnsHome" pagination={pagination}/>
       </div>
   
 </div>
 
-<div className="title">
-      <h1>PI RECIPES</h1>
-  </div>
+
      
     
 
 
-      <div>
+      <div className="filters">
       
       <select onChange={e => handleFilterType(e)}>
           <option value = "All">Todos</option>

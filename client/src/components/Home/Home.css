@@ -11,7 +11,7 @@
     };
 
     .bg2{
-        background-color: rgba(23, 23, 23, 0.83);
+        background-color: rgba(185, 13, 13, 0.83);
             backdrop-filter: blur(3px);
         
         }
@@ -27,15 +27,6 @@
           text-shadow: rgba(218, 17, 17, 0.648) --4px;
         } */
         
-         .title h1{   
-          font-size:55px;
-          margin-top: 0;
-          margin-bottom: 2%;
-          color: rgba(125, 69, 69, 0.968);
-          font-size: 40px;
-          font-family: "Comic Sans MS", "Comic Sans", cursive;
-          
-        }
 
     .cards {
         display:grid;
@@ -45,3 +36,12 @@
         width: 100%;
         margin-bottom: 5%;
     }
+
+.filters{
+    display:inline-block;
+    grid-template-columns: repeat(2, 2fr);
+    align-content: center;
+    align-items:center;
+    width: 100%;
+    margin-bottom: 5%;
+};
