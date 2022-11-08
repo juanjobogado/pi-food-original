@@ -40,6 +40,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
     //   // defaultValue: "There is no image"
     },
+    dishTypes: {
+      type: DataTypes.STRING
+    }
     // diets: {
     //   type: DataTypes.ARRAY(DataTypes.STRING),
     //   //  type: DataTypes.TEXT,

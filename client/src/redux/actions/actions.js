@@ -7,3 +7,4 @@ export const POST_RECIPE = "POST_RECIPE";
 export const GET_DIETS = "GET_DIETS";
 export const GET_RECIPES_ID = "GET_RECIPES_ID";
 export const DELETE_RECIPE = "DELETE_RECIPE";
+export const CLEAN = "CLEAN";

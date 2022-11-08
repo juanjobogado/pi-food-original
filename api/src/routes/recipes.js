@@ -85,7 +85,7 @@ router.get("/recipes/:id", async (req,res) => { // LO QUE VA EN :ID TIENE QUE SE
 
 router.post("/recipes", async (req,res) => {
   
-const { steps, title, summary, healthScore, image, diets} = req.body;
+const { steps, title, summary, healthScore, image, diets, dishTypes} = req.body;
 try {
   if(!steps || !title || !summary || !healthScore || !image || !steps){
 
@@ -96,7 +96,7 @@ try {
       summary,
       healthScore,
       diets,
-      
+      dishTypes,
     })
     let dietsDb = await Type.findAll({ 
       where: {name: diets} })

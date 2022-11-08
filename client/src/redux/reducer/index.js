@@ -1,4 +1,4 @@
-import { FILTER_RECIPES_BY_TYPE, GET_DIETS, GET_RECIPES, GET_RECIPES_ID, GET_RECIPES_NAME, ORDER_RECIPES_BY_NAME, ORDER_RECIPES_SCORE, POST_RECIPE } from "../actions/actions";
+import { FILTER_RECIPES_BY_TYPE, GET_DIETS, GET_RECIPES, GET_RECIPES_ID, GET_RECIPES_NAME, ORDER_RECIPES_BY_NAME, ORDER_RECIPES_SCORE, POST_RECIPE, CLEAN } from "../actions/actions";
 
 const initialState = {
 recipes: [],
@@ -110,7 +110,12 @@ export default function reducer(state = initialState, action){
             return {
                 ...state,
             }        
-  
+        
+            case CLEAN:
+                return {
+                    ...state,
+                    detail: [],
+                };
     default:
       return state;
   }

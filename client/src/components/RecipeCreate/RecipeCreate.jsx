@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Link, useHistory} from "react-router-dom";
 import { postRecipe, getDiets } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import "./RecipeCreate.css";
 
 function validation(input) {
     let errors = {};
@@ -32,6 +33,11 @@ function validation(input) {
     if (!input.steps) errors.steps = "Can't be empty";
      else if (input.steps.length < 10) {
     	errors.steps = "Must be more than 20 characters";
+     }
+
+    if(!input.dishTypes) errors.dishTypes = "Can't be empty";
+     else if(input.dishTypes.length < 10){
+        errors.dishTypes = "Must be more than 10 characters";
      }
     return errors;
 }
@@ -94,12 +100,17 @@ export default function RecipeCreate(){
     console.log(input.steps);
     console.log(diets)
     return (
-        <div>
-            <Link to = "/home"><button>Volver</button></Link>
-            <h1>¡Crea tu receta!</h1>
+        <div className="containerRecipeCreate">
+            <div className="btnRecipeCreateContainer">
+            <Link to = "/home"><button className="btnRecipeCreate">Volver</button></Link>
+            </div>
+        
+            <div className="containerCardCreate">
+            <h1 className="titleCreate">¡Crea tu receta!</h1>
+
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div>
-                    <label>Titulo:</label>
+                    <label className="labelCreate">Titulo:</label>
                     <input
                     type="text"
                     value={input.title}
@@ -109,7 +120,7 @@ export default function RecipeCreate(){
                     {errors.title && (<span>{errors.title}</span>)}
                 </div>
                 <div>
-                    <label>Resumen:</label>
+                    <label className="labelCreate">Resumen:</label>
                     <input
                     type = "text"
                     value = {input.summary}
@@ -119,7 +130,7 @@ export default function RecipeCreate(){
                     {errors.summary && (<span>{errors.summary}</span>)}
                 </div>
                 <div>
-                    <label>Puntos de salud:</label>
+                    <label className="labelCreate">Puntos de salud:</label>
                     <input
                     type = "number"
                     value = {input.healthScore}
@@ -139,7 +150,14 @@ export default function RecipeCreate(){
                     {errors.steps && (<span>{errors.steps}</span>)}
                 </div>
                 <div>
-
+                    <label>Tipos de platos:</label>
+                    <input
+                    type = "text"
+                    value = {input.dishTypes}
+                    name = "dishTypes"
+                    onChange={(e) => handleChange(e)}
+                    />
+                    {errors.summary && (<span>{errors.summary}</span>)}
                 </div>
                 <div>
 					<ul>
@@ -173,6 +191,7 @@ export default function RecipeCreate(){
                 </div>
                 <button type = "submit">Crear receta...</button>
             </form>
+            </div>
         </div>
     )
 }

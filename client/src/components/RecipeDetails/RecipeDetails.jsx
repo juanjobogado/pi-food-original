@@ -1,35 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipesById } from "../../redux/actions";
+import { getRecipesById, Clean } from "../../redux/actions";
+import photo from "../images/comidita.jpg"
+
 
 export default function RecipeDetails(props){
     const dispatch = useDispatch();
+    const [change, setChange] = useState(false);
+    const detail = useSelector((state) => state.detail);
+    const id = props.match.params.id;
 
     useEffect(() => {
         dispatch(getRecipesById(id));
-      },[dispatch]);
+        setChange(true);
+        return () => {dispatch(Clean())};
+      },[dispatch, id]);
     
+  //   useEffect(() => {
+  //     dispatch(getRecipesById(props.match.params.id));
+  //     setChange(true);   
+  //     return  () => { dispatch(Clean()) } 
+  // }, [dispatch, props.match.params.id]);
 
     const recipeDetail = useSelector((state) => state.detail);
-    const id = props.match.params.id;
-// return (
-//     <div>
-//         {
-//             myRecipe.length > 0 ? 
-//             <div>
-//                 <h1>{myRecipe[0]?.title}</h1>
-//                 <img src = {myRecipe[0]?.image}/>
-//             </div>
-//             :
-//             <h2>hola</h2>
-//         }
-//     </div>
-// )
+
+    // const image = props.match.params.image;
 
 return (
+  
     <div>
-      <div>
+   {detail.length  ? <div>
+   <div>
         <Link to={`/home`}>Home</Link>
       </div>
       <div>
@@ -37,7 +39,14 @@ return (
           <h2>{recipeDetail[0]?.title}</h2>
         </div>
         <div>
-          <img src={recipeDetail[0]?.image} alt="img" className="image" width="370px" height="280px"/>
+        {recipeDetail[0]?.image ? (
+                <img src={recipeDetail[0]?.image} alt = "There is no image"/>
+            ):
+                (
+                    <img src={photo} alt = "There is no image"/>
+                )
+            }
+          {/* <img src={recipeDetail[0]?.image} alt="img" className="image" width="370px" height="280px"/> */}
         </div>
         <div>
           <h2>DISH TYPES: {recipeDetail[0]?.dishTypes}</h2>
@@ -71,7 +80,9 @@ return (
               );
             })} */}
         </div>
-      </div>
+      </div> 
+      </div> : <p>Loading...</p> }
+      
     </div>
   );
 };

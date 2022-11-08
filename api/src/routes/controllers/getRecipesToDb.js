@@ -65,6 +65,7 @@ const recipeDbInfo = async () => {
         healthScore: recipe.healthScore,
         steps: recipe.steps,
         image: recipe.image,
+        dishTypes: recipe.dishTypes,
         diets: allTypes,
       };
     });

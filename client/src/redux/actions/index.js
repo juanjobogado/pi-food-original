@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_RECIPES, GET_RECIPES_NAME, FILTER_RECIPES_BY_TYPE, ORDER_RECIPES_BY_NAME, ORDER_RECIPES_SCORE, GET_DIETS, GET_RECIPES_ID } from "./actions";
+import { GET_RECIPES, GET_RECIPES_NAME, FILTER_RECIPES_BY_TYPE, ORDER_RECIPES_BY_NAME, ORDER_RECIPES_SCORE, GET_DIETS, GET_RECIPES_ID, CLEAN } from "./actions";
 
 export function getRecipes(){
     return async function(dispatch){
@@ -90,3 +90,9 @@ export function getRecipesById(id){
   }
 
 };
+
+export function Clean() {
+  return {
+    type: CLEAN,
+  };
+}
