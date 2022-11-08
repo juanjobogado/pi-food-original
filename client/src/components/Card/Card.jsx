@@ -25,9 +25,9 @@ return(
     <div className="rightCardBottom">
             {
                typeof diets === "string" ? diets : 
-                diets?.map( e => {
+                diets?.map( (e,i) => {
                     return (
-                        <p key={e}>{e}</p>
+                        <p key={i}>{e}</p>
                     )
                 })
             

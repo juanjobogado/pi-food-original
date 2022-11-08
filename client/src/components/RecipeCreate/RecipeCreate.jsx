@@ -69,7 +69,7 @@ export default function RecipeCreate(){
         if(e.target.checked){
             setInput({
                 ...input,
-                status: e.target.value
+                diets: [...input.diets, e.target.value]
             })
         }
     }

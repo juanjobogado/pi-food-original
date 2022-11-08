@@ -6,47 +6,7 @@ const getAllInfo = require("./controllers/getAllInfo");
 const { Recipe, Type } = require("../db");
 const axios = require("axios");
 const {YOUR_API_KEY} = process.env;
-// const { Op } = require("sequelize");
-// const getRecipes = require("./controllers/getRecipes");
-// const postRecipes = require("./controllers/postRecipes");
 
-// const getRecipeByName = async (title) => {
-//   try {
-//     await getAllInfo();
-//     const info = await Recipe.findAll({
-//       attributes: ["title"],
-//       where: {
-//         title: {[Op.iLike]: `%${title}%`}
-//       },
-//       include: {
-//         model: Type,
-//         attributes: ["name"],
-//         through: {
-//           attributes: []
-//         }
-//       }
-//     })
-
-//     const recipes = info.map(receta => ({
-//       id: receta.id,
-//       title: receta.title,
-//       image: receta.image,
-//       healthScore: receta.healthScore,
-//       // steps: receta.analyzedInstructions[0]?.steps.map((a)=>{
-//       //   return {
-//       //     number: a.number,
-//       //     step: a.step
-//       //   }
-//       // }),
-//       summary: receta.summary,
-  
-//   }))
-
-//   return recipes;
-//   } catch (error) {
-//     console.log(error)
-//   }
-//  };
 
 router.get("/recipes", async (req,res) => {
   
@@ -118,23 +78,7 @@ router.get("/recipes/:id", async (req,res) => { // LO QUE VA EN :ID TIENE QUE SE
     console.log(error.message);
     res.status(404).send("No recipe found with matching id")
   } 
-// if(id){
-//   var recipe = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${YOUR_API_KEY}`);
-//   // const json = await axios.get("https://api.spoonacular.com/recipes/716426/information?apiKey=0bf54c16d7f7472789ff6360948e5ac4")
-//   recipe = {
-    
-//       id: recipe.id,
-//       title: recipe.title,
-//       summary: recipe.summary?.replaceAll(/<(“[^”]”|'[^’]’|[^'”>])*>/g, ""),
-//       healthScore: recipe.healthScore,
-//       image: recipe.image,
-//       steps: (recipe.analyzedInstructions?.[0] && recipe.analyzedInstructions[0].steps?recipe.analyzedInstructions[0].steps.map((a)=> a.step).join(" || "): "There is no steps"),
-//       diets: recipe.diets? recipe.diets.map((diet) => diet) : "There is no diet"
-    
-//   }
-  
-//   recipe.length ?  res.send(recipe): res.status(404).send("no id found")
-// }
+
  
 
 });
@@ -151,13 +95,15 @@ try {
       title,
       summary,
       healthScore,
+      diets,
       
     })
     let dietsDb = await Type.findAll({ 
       where: {name: diets} })
-      await recipePost.addType(dietsDb);
-  
-    return res.status(200).send(recipePost);
+      // await recipePost.addType(dietsDb);
+      recipePost.addType(dietsDb);
+    // return res.status(200).send(recipePost);
+    return res.send("recipe created")
   }
 } catch (error) {
   console.log(error.message);

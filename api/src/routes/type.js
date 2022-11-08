@@ -19,19 +19,19 @@ const router = Router();
 // ];
 
 const dietsLocal =  [
-    "Gluten Free",
-    "Ketogenic",
-    "Lacto Ovo Vegetarian",
-    "Vegan",
-    "Pescatarian",
-    "Paleolithic",
-    "Primal",
-    "Fodmap Friendly",
-    "Whole 30",
-    "Dairy free",
-    "Vegetarian",
-    "Lacto vegetarian",
-    "Ovo vegetarian"                        
+    "gluten free",
+    "ketogenic",
+    "lacto ovo vegetarian",
+    "vegan",
+    "pescatarian",
+    "paleolithic",
+    "primal",
+    "fodmap friendly",
+    "whole 30",
+    "dairy free",
+    "vegetarian",
+    "lacto vegetarian",
+    "ovo vegetarian"                        
 ];
 
 
@@ -44,7 +44,7 @@ router.get("/diets", async (req, res) => {
          });
     });        
         const allDiets = await Type.findAll();         
-        res.status(200).json(allDiets);
+        return res.status(200).json(allDiets);
 
     }catch(e){
         res.status(400).json({message: e})
