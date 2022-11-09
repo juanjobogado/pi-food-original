@@ -6,5 +6,4 @@ export const ORDER_RECIPES_SCORE = "ORDER_RECIPES_SCORE";
 export const POST_RECIPE = "POST_RECIPE";
 export const GET_DIETS = "GET_DIETS";
 export const GET_RECIPES_ID = "GET_RECIPES_ID";
-export const DELETE_RECIPE = "DELETE_RECIPE";
 export const CLEAN = "CLEAN";

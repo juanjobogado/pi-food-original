@@ -1,4 +1,5 @@
 import React from "react";
+import "./Pagination.css";
 
 export default function Pagination({recipesPerPage, currentPage, allRecipes, pagination}){
   const pageNumbers = [];
@@ -11,7 +12,7 @@ export default function Pagination({recipesPerPage, currentPage, allRecipes, pag
   }
 
   return(
-    <div>
+    <div className="btnPag">
       <button
         onClick={() => 
           pagination(currentPage === 1 ? pageNumbers.length : currentPage -1)}

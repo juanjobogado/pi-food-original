@@ -54,13 +54,13 @@
             justify-content: space-evenly;
             font-size: 115%; 
             font-family: "Comic Sans MS", "Comic Sans", cursive;
-            color:rgba(125, 69, 69, 0.968);
+            color: rgb(174, 160, 140);
             width: 100%;
             
           }
           h3{
             font-family: "Comic Sans MS", "Comic Sans", cursive;
-            color:rgba(125, 69, 69, 0.968);
+            color: rgb(163, 138, 96); 
             width: 100%;
             text-decoration: none;
             font-size: 150%;

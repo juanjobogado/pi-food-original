@@ -6,30 +6,24 @@ import "./RecipeCreate.css";
 
 function validation(input) {
     let errors = {};
-    //console.log(input.title + ">>>>>>>>>>>>>>>>>>>> VALID")
-    // title
-    let nameRegex = /^[a-zA-Z]+$/g;
-    if (!input.title) errors.title = "Can't be empty";
-    else if (!nameRegex.test(input.title)) {
-        errors.title = "Only Alphabetic Characters";
-    }
-    //Summary
+   
+    if (!input.title){
+        errors.title = "Name is required"}
+    else if (!input.title.match(/^[A-Za-z\s]+$/)){
+        errors.title = "Only letters, please"
+    
+}
+
     if (!input.summary) errors.summary = "Can't be empty";
     else if (input.summary.length < 20) {
         errors.summary = "Must be more than 20 characters";
     }
-    // Image
-    // var imgPattern = /(https?:\/\/.*\.(?:png|jpg))/i;
-    // if (!input.image) errors.image = "Image link can't be blank";
-    // else if (!imgPattern.test(input.image))
-    //     errors.image = "Must be a image link and a jpg or png file";
-    // Height
-    if (!input.healthScore) errors.healthScore = "The Socre can't be empty";
+    
+
+    if (!input.healthScore) errors.healthScore = "The Score can't be empty";
     else if (input.healthScore <= 0 || input.healthScore > 100)
         errors.healthScore = "Must be between 0 and 100";
-    //ListDiets		
-    // if (!input.idDiets.value > "") errors.idDiets = "Check almost one option";
-    //analyzedInstructions
+   
     if (!input.steps) errors.steps = "Can't be empty";
      else if (input.steps.length < 10) {
     	errors.steps = "Must be more than 20 characters";
@@ -140,7 +134,7 @@ export default function RecipeCreate(){
                     {errors.healthScore && (<span>{errors.healthScore}</span>)}
                 </div>
                 <div>
-                    <label>Pasos:</label>
+                    <label className="labelCreate">Pasos:</label>
                     <input
                     type = "text"
                     value = {input.steps}
@@ -150,7 +144,7 @@ export default function RecipeCreate(){
                     {errors.steps && (<span>{errors.steps}</span>)}
                 </div>
                 <div>
-                    <label>Tipos de platos:</label>
+                    <label className="labelCreate">Tipos de platos:</label>
                     <input
                     type = "text"
                     value = {input.dishTypes}
@@ -159,20 +153,23 @@ export default function RecipeCreate(){
                     />
                     {errors.summary && (<span>{errors.summary}</span>)}
                 </div>
-                <div>
-					<ul>
+                <div className="dietsContainer">
+					{/* <ul> */}
 					    {diets.map((e) => {
 							return (
-			    				<li key={e.id}>
+			    				// <li key={e.id}>
+                                <div className="checkbox">
 									<input
+                                        id="inputCheckbox"
 										type="checkbox"
-										id={e.id}
+										// id={e.id}
 										name={e.name}
 										value={`${e.name}`}
 										onChange={(e) => handleCheck(e)}
 										/>
-				<label htmlFor={e.id}>{e.name}</label>
-								</li>
+				<label className="labelCreate" htmlFor={e.id}>{e.name}</label>
+                </div>
+								// </li>
                                 
                 // <label><input
                 // key={e.name}
@@ -185,7 +182,7 @@ export default function RecipeCreate(){
                                    
 								})}
 								
-					</ul>
+					{/* </ul> */}
                     
                
                 </div>

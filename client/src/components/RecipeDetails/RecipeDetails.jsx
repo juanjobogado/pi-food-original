@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipesById, Clean } from "../../redux/actions";
+import { getRecipesById, Clean} from "../../redux/actions";
 import photo from "../images/comidita.jpg"
-
+import "./RecipeDetails.css";
 
 export default function RecipeDetails(props){
     const dispatch = useDispatch();
@@ -16,28 +16,26 @@ export default function RecipeDetails(props){
         setChange(true);
         return () => {dispatch(Clean())};
       },[dispatch, id]);
-    
-  //   useEffect(() => {
-  //     dispatch(getRecipesById(props.match.params.id));
-  //     setChange(true);   
-  //     return  () => { dispatch(Clean()) } 
-  // }, [dispatch, props.match.params.id]);
+
+
 
     const recipeDetail = useSelector((state) => state.detail);
 
-    // const image = props.match.params.image;
 
 return (
   
-    <div>
+    <div className="containerDetails">
    {detail.length  ? <div>
-   <div>
-        <Link to={`/home`}>Home</Link>
+   <div className="btnToHome">
+        <Link  to="/home"><button className="btnToHomeLink">Home</button></Link>
       </div>
-      <div>
-        <div>
-          <h2>{recipeDetail[0]?.title}</h2>
-        </div>
+
+   
+
+  
+     
+          <h2 className="h2Detail">{recipeDetail[0]?.title}</h2>
+       
         <div>
         {recipeDetail[0]?.image ? (
                 <img src={recipeDetail[0]?.image} alt = "There is no image"/>
@@ -46,7 +44,6 @@ return (
                     <img src={photo} alt = "There is no image"/>
                 )
             }
-          {/* <img src={recipeDetail[0]?.image} alt="img" className="image" width="370px" height="280px"/> */}
         </div>
         <div>
           <h2>DISH TYPES: {recipeDetail[0]?.dishTypes}</h2>
@@ -80,8 +77,11 @@ return (
               );
             })} */}
         </div>
-      </div> 
+     
+
       </div> : <p>Loading...</p> }
+
+      
       
     </div>
   );

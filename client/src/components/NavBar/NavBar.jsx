@@ -31,16 +31,18 @@ export default function NavBar({pagination}){
       
       <div className="Navbar">
 
-          <div>
-          <SearchBar />
-          </div>
+          
          <div className="divLoadRecipes">
-         <button className="btnNavBarLoad" onClick={e => {handleClick(e)}}>Cargar todas las recetas</button>
+         <button className="btnNavBarLoad" id="loadAllRecipes" onClick={e => {handleClick(e)}}>Cargar todas las recetas</button>
          </div>
 
-            <div className="divCreateRecipe">
+         <div className="searchBar">
+          <SearchBar />
+          </div>
+
+            <div>
              <Link to="/recipes">
-               <button className="divCreateRecipe" type="button">Crear receta</button>
+               <button className="divCreateRecipe" id="createRecipes" type="button">Crear receta</button>
              </Link>
            </div>
 

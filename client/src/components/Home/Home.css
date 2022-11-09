@@ -9,13 +9,20 @@
     display: inline-block
     
     };
-
+   
     .bg2{
         background-color: rgba(185, 13, 13, 0.83);
             backdrop-filter: blur(3px);
         
         }
         
+        
+.filterDiets{
+    background-color: rgba(40, 40, 40);
+    color:rgb(174, 160, 140);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 100%;
+} 
         /* .head {
           height: 90px;
          
@@ -36,12 +43,12 @@
         width: 100%;
         margin-bottom: 5%;
     }
+    
+    .filters{
+        display:flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-bottom: 3%;
+    };
 
-.filters{
-    display:inline-block;
-    grid-template-columns: repeat(2, 2fr);
-    align-content: center;
-    align-items:center;
-    width: 100%;
-    margin-bottom: 5%;
-};
+

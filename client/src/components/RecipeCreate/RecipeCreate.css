@@ -1,3 +1,4 @@
+
 .containerRecipeCreate{
 background-image: url("../images/fondolanding.jpg");
 width: 100%;
@@ -31,10 +32,35 @@ margin-top: 4%
         color: rgb(105, 69, 69);
       };
 
+
 .containerCardCreate{
     border: 10px solid rgb(207, 191, 191) ;
 }
+span{
+  color: rgb(105, 69, 69);
+}
+
 
 .labelCreate{
     color: rgb(105, 69, 69);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    margin-right: 1%
+
 };
+
+#inputCheckbox{
+  display:grid;
+  grid-template-columns: repeat(2, 2fr);
+  align-content: center;
+  align-items:center;
+  width: 100%;
+  margin-bottom: 5%;
+  background-color: aqua
+};
+/* .dietsContainer{
+  color: rgb(105, 69, 69);
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  margin-left: 20%
+}; */
+
+

@@ -42,7 +42,7 @@ module.exports = (sequelize) => {
     },
     dishTypes: {
       type: DataTypes.STRING
-    }
+    },
     // diets: {
     //   type: DataTypes.ARRAY(DataTypes.STRING),
     //   //  type: DataTypes.TEXT,

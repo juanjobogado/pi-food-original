@@ -55,7 +55,6 @@ export default function Home(){
     setCurrentPage(1);
     setOrder(`Ordenado ${e.target.value}`)
   };
-
   
   return (
   
@@ -76,8 +75,8 @@ export default function Home(){
 
       <div className="filters">
       
-      <select onChange={e => handleFilterType(e)}>
-          <option value = "All">Todos</option>
+      <select className="filterDiets" id="right" onChange={e => handleFilterType(e)}>
+          <option value = "All">TODOS</option>
           <option value = "Gluten Free">Gluten Free</option>
           <option value = "Ketogenic">Ketogenic</option>
           <option value = "Lacto Ovo Vegetarian">Ovo Lacto Vegetariano</option>
@@ -89,18 +88,18 @@ export default function Home(){
           <option value = "Whole 30">Whole 30</option>
           <option value = "Dairy free">Dairy Free</option>
           <option value = "Vegetarian">Vegetariano</option>
-          <option value = "Lacto vegetarian">Lacto Vegetariano</option>
-          <option value = "Ovo vegetarian" >Ovo Vegetariano</option>
       </select>
-      <select onChange={e => handleOrder(e)}>
+
+      <select className="filterDiets" onChange={e => handleOrder(e)}>
           <option disabled  defaultValue="selected">Ordenar por...</option>
           <option value="asc">A-Z</option>
           <option value="des">Z-A</option>
       </select>
-      <select onChange={e => handleOrderScore(e)}>
+
+      <select className="filterDiets" id="left" onChange={e => handleOrderScore(e)}>
           <option disabled defaultValue="selected">Ordenar por Health Score...</option>
-          <option value="asc"> - to + </option>
-          <option value="desc"> + to - </option>
+          <option value="asc"> - TO + </option>
+          <option value="desc"> + TO - </option>
       </select>
       </div>
       

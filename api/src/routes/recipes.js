@@ -29,41 +29,6 @@ router.get("/recipes", async (req,res) => {
   }
 });
 
-// router.get('/recipes',async function (req,res) {
-//   try {
-//       let {name} = req.query
-//       const recipes= await getAllInfo()
-//       if (name) {
-//           let filtered = await recipes.filter(e => e.name.toLowerCase().includes(name.toString().toLowerCase()))
-//           if (filtered.length) {
-//               let washed = filtered.map(e => {
-//                   return {
-//                       image: e.image,
-//                       title: e.title,
-//                       diets: (typeof(e.diets[0])==='string')? e.diets : e.diets.map(e => e.name),
-//                       id: e.id,
-//                       healthScore: e.healthScore
-//                   }
-//               })
-//               return res.status(200).json(washed)
-//           }
-//           return res.status(404).json("No se encontraron recetas")
-//       }else{
-//           let washed = recipes.map(e => {
-//               return {
-//                   image: e.image,
-//                   title: e.title,
-//                   diets: (typeof(e.diets[0])==='string')? e.diets : e.diets.map(e => e.name),
-//                   id: e.id,
-//                   healthScore: e.healthScore
-//               }
-//           })
-//           return res.json(washed)
-//       }
-//   } catch (error) {
-//       return res.status(404).json(error.message)
-//   }
-// })
 
 
 router.get("/recipes/:id", async (req,res) => { // LO QUE VA EN :ID TIENE QUE SER IGUAL A LO QUE SE PASA ABAJO POR PARAMS.
@@ -111,5 +76,6 @@ try {
 }
 
 });
+
 
 module.exports = router;

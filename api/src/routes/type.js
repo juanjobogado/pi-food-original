@@ -2,22 +2,6 @@ const Router = require('express');
 const {Recipe, Type} = require('../db.js');
 const router = Router();
 
-// const dietsLocal =  [
-//     {id: 1, name: "Gluten Free"},
-//     {id: 2, name: "Ketogenic"},
-//     {id: 3, name: "Lacto Ovo Vegetarian"},
-//     {id: 4, name: "Vegan"},
-//     {id: 5, name: "Pescatarian"},
-//     {id: 6, name: "Paleolithic"},
-//     {id: 7, name: "Primal"},
-//     {id: 8, name: "Fodmap Friendly"},
-//     {id: 9, name: "Whole 30"},
-//     {id: 10, name: "Dairy free"},
-//     {id: 11, name: "Vegetarian"},
-//     {id: 12, name: "Lacto vegetarian"},
-//     {id: 13, name: "Ovo vegetarian"}                       
-// ];
-
 const dietsLocal =  [
     "gluten free",
     "ketogenic",
