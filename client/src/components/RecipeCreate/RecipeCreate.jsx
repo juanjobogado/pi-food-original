@@ -3,6 +3,7 @@ import {Link, useHistory} from "react-router-dom";
 import { postRecipe, getDiets } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import "./RecipeCreate.css";
+import Loading from "../Loading/Loading";
 
 function validation(input) {
     let errors = {};
@@ -95,7 +96,7 @@ export default function RecipeCreate(){
     console.log(diets)
     return (
         <div className="containerRecipeCreate">
-            <div className="btnRecipeCreateContainer">
+            {diets.length? <div> <div className="btnRecipeCreateContainer">
             <Link to = "/home"><button className="btnRecipeCreate">Volver</button></Link>
             </div>
         
@@ -188,7 +189,8 @@ export default function RecipeCreate(){
                 </div>
                 <button type = "submit">Crear receta...</button>
             </form>
-            </div>
+            </div></div> : <Loading/>}
+            
         </div>
     )
 }

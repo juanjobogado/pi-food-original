@@ -9,6 +9,8 @@ import Pagination from "../Pagination/Pagination";
 import NavBar from "../NavBar/NavBar";
 import { filterRecipesByType, orderRecipesByName, orderByScore } from "../../redux/actions";
 import "./Home.css";
+import { useHistory } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 export default function Home(){
   const dispatch = useDispatch();
@@ -21,14 +23,24 @@ export default function Home(){
   const currentRecipes = allRecipes?.slice(indexOfFirstRecipe, indexOfLastRecipe);
   const [order, setOrder] = useState('');
 
+  const history = useHistory();
+
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   };
 
   useEffect(() => {
-    dispatch(getRecipes());
+    if(!allRecipes.length){
+      dispatch(getRecipes())
+    }
+    // !allRecipes.length ?  dispatch(getRecipes()) : null
+    
+   
   }, [dispatch]);
 
+  // useEffect(() => {
+  //   dispatch(getRecipes());
+  // }, [dispatch])
 
 
   // function handleClick(e) {
@@ -59,7 +71,7 @@ export default function Home(){
   return (
   
     <div className="containerHome">
-      <div className="bg2">
+      {allRecipes.length? <div className="bg2">
 
 <div className="head">
 <div>
@@ -137,7 +149,7 @@ export default function Home(){
       />
     </div>
 
-      </div>
+      </div> : <Loading/> }
     </div>
   );
 };

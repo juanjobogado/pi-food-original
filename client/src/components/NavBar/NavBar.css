@@ -1,7 +1,10 @@
  .Navbar{
-background-color: rgba(37, 28, 28, 0.56);
+background-color: rgba(0, 0, 0, 0.7);
 display: flex;
-justify-content: space-around;
+justify-content: space-between;
+align-items: center;
+padding: 8px 16px;
+
 /* align-items: center; */
  }; 
 
@@ -9,10 +12,11 @@ justify-content: space-around;
     margin-left: 100%;
 }  
 
-.searchBar{
+/* .searchBar{
     margin-left: -7%;
     margin-top: 1%;
-}
+    height: 10%;
+} */
 
 .btnNavBarLoad{
     align-items: center;

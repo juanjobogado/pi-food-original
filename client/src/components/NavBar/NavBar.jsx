@@ -31,6 +31,11 @@ export default function NavBar({pagination}){
       
       <div className="Navbar">
 
+        <div>
+          <Link to="/">
+            <button>Landing page</button>
+          </Link>
+        </div>
           
          <div className="divLoadRecipes">
          <button className="btnNavBarLoad" id="loadAllRecipes" onClick={e => {handleClick(e)}}>Cargar todas las recetas</button>

@@ -1,7 +1,8 @@
  import React, {useState} from "react";
  import { useDispatch } from "react-redux";
  import { getRecipesName } from "../../redux/actions";
-import "./SearchBar.css";
+ import "./SearchBar.css";
+ import { AiOutlineSearch } from "react-icons/ai"
 
  function SearchBar(){
    const dispatch = useDispatch();
@@ -21,28 +22,20 @@ import "./SearchBar.css";
      e.preventDefault();
      setTitle(e.target.value);
    }
-
-   return (
-     <div>
-      
-    <div className="input-wrapper">
-       {/* <form onSubmit={e => handleSubmit(e)}> */}
   
+   return (
+  <form onSubmit={(e) => handleSubmit(e)}>
+    <div className="input-wrapper">
          <input
-         className="input"
          type = "text"
-         // id = "title"
-         // value = {title}
+         value = {title}
          placeholder = "Search Recipe..."
          onChange = {e => handleChange(e)}
          />
-      <div>
-         <button className="btn" type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
-       {/* </form> */}
-      </div>
+         <button className="btn" type="submit"><AiOutlineSearch className="searchIcon"/></button>
 
        </div>
-     </div>
+       </form>
    )
  };
 

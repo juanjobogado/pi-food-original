@@ -77,5 +77,23 @@ try {
 
 });
 
+router.delete("/recipes/:id", async (req,res) =>{
+  const { id } = req.params;
+
+  try {
+    if(id){
+      Recipe.destroy({
+        where: {
+          id: id
+        }
+      })
+    }
+    return res.status(200).send("Recipe deleted")
+  } catch (error) {
+    console.log(error.message)
+    return res.status(400).send("Cannot delete recipe");
+  }
+})
+
 
 module.exports = router;

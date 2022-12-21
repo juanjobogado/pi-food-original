@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipesById, Clean} from "../../redux/actions";
+import { getRecipesById, Clean, Delete} from "../../redux/actions";
 import photo from "../images/comidita.jpg"
 import "./RecipeDetails.css";
+import { useHistory } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 export default function RecipeDetails(props){
     const dispatch = useDispatch();
     const [change, setChange] = useState(false);
     const detail = useSelector((state) => state.detail);
     const id = props.match.params.id;
+    const history = useHistory()
 
     useEffect(() => {
         dispatch(getRecipesById(id));
@@ -21,6 +24,11 @@ export default function RecipeDetails(props){
 
     const recipeDetail = useSelector((state) => state.detail);
 
+   function handleDelete(id) {
+    dispatch(Delete(id));
+    history.goBack();
+  }
+  
 
 return (
   
@@ -77,9 +85,11 @@ return (
               );
             })} */}
         </div>
-     
+        <div>
+          <button onClick={handleDelete}>Delete Recipe</button>
+        </div>
 
-      </div> : <p>Loading...</p> }
+      </div> : <Loading/> }
 
       
       
