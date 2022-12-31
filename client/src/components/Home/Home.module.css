@@ -1,38 +1,38 @@
 .containerHome {
-    background-image: url("../images/some\ fruits\ kitchen.jpg");
-    background-color:#b9825f;
-    margin: 0;
-    height: 200%;
+    /* background-image: url("../images/some\ fruits\ kitchen.jpg"); */
+    /* margin: 0;*/
+    
+    height: 200vh;
+    display: inline-block;
+    background-attachment:fixed;
     background-size: cover; 
     background-position: 200%;
-    background-attachment:fixed;
-    display: inline-block
-    
+    background-color: #050200;
+    background-image: url("https://www.transparenttextures.com/patterns/black-felt.png");
     };
+    .divCard{
+        display: flex;
+    }
+    .linkCards{
+        outline: none;
+  text-decoration: none;
+    }
    
     .bg2{
-        background-color: rgba(185, 13, 13, 0.83);
-            backdrop-filter: blur(3px);
+        background-color: rgba(28, 26, 26, 0,83);
+        backdrop-filter: blur(3px);
         
         }
         
         
 .filterDiets{
+    margin-top: 17px;
     background-color: rgba(40, 40, 40);
     color:rgb(174, 160, 140);
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     font-size: 100%;
 } 
-        /* .head {
-          height: 90px;
-         
-          font-size:55px;
-          margin-top: 0;
-          margin-bottom: 2%;
-          color: rgb(255, 255, 255);
-          font-size: 70px;
-          text-shadow: rgba(218, 17, 17, 0.648) --4px;
-        } */
+
         
 
     .cards {

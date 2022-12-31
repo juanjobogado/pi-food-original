@@ -1,36 +1,38 @@
-.input-wrapper{
+.inputwrapper{
     display: flex;
     position: relative;
     
 };
-.input-wrapper input {
-    background-color: rgb(21, 21, 21);
 
-   }
-.input-wrapper input {
+.form{
+  display: flex;
+}
+
+.inputwrapper .input {
     background-color: rgb(21, 21, 21);
     border: none;
-    padding: 1rem;
+    padding: 0.5rem;
     font-size: 1rem;
     width: 61%;
     border-radius: 1rem;
     box-shadow: 0 0.3rem rgb(40,40,40);
-
     font-size: 13px;
     color: rgb(163, 138, 96);
   }
- 
-  
 
+.input::placeholder{
+  font-weight: bold;
+  color: rgb(163, 138, 96);
+}
 
 .btn {
   position: relative;
   display: flex;
   border: none;
   transform: translateX(215px);
-  padding: 9px 7px;
-  margin-top: 3px;
-  margin-left: -111%;
+  padding: 6px 7px;
+  margin-bottom: 3px;
+  margin-left: -119%;
   background: transparent;
 }
 .searchIcon {
@@ -42,7 +44,3 @@
   .searchIcon:hover {
     color: rgb(173, 163, 146);
   }
-
-/* .input-wrapper input:focus {
-    outline-color: rgb(46, 253, 253);
-} */

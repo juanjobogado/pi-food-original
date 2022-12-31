@@ -1,7 +1,7 @@
  import React, {useState} from "react";
  import { useDispatch } from "react-redux";
  import { getRecipesName } from "../../redux/actions";
- import "./SearchBar.css";
+ import styles from "./SearchBar.module.css"
  import { AiOutlineSearch } from "react-icons/ai"
 
  function SearchBar(){
@@ -24,15 +24,16 @@
    }
   
    return (
-  <form onSubmit={(e) => handleSubmit(e)}>
-    <div className="input-wrapper">
+  <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+    <div className={styles.inputwrapper}>
          <input
+         className={styles.input}
          type = "text"
          value = {title}
          placeholder = "Search Recipe..."
          onChange = {e => handleChange(e)}
          />
-         <button className="btn" type="submit"><AiOutlineSearch className="searchIcon"/></button>
+         <button className={styles.btn} type="submit"><AiOutlineSearch className={styles.searchIcon}/></button>
 
        </div>
        </form>

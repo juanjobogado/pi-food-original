@@ -8,7 +8,7 @@ import {useSelector, useDispatch} from "react-redux"
 import Pagination from "../Pagination/Pagination";
 import NavBar from "../NavBar/NavBar";
 import { filterRecipesByType, orderRecipesByName, orderByScore } from "../../redux/actions";
-import "./Home.css";
+import styles from "./Home.module.css";
 import { useHistory } from "react-router-dom";
 import Loading from "../Loading/Loading";
 
@@ -70,11 +70,11 @@ export default function Home(){
   
   return (
   
-    <div className="containerHome">
+    <div className={styles.containerHome}>
       {allRecipes.length? <div className="bg2">
 
-<div className="head">
-<div>
+<div className={styles.head}>
+<div className={styles.navbarContainer}>
       <NavBar className="btnsHome" pagination={pagination}/>
       </div>
   
@@ -85,10 +85,10 @@ export default function Home(){
     
 
 
-      <div className="filters">
+      <div className={styles.filters}>
       
-      <select className="filterDiets" id="right" onChange={e => handleFilterType(e)}>
-          <option value = "All">TODOS</option>
+      <select className={styles.filterDiets} id="right" onChange={e => handleFilterType(e)}>
+          <option value = "All">All Recipes</option>
           <option value = "Gluten Free">Gluten Free</option>
           <option value = "Ketogenic">Ketogenic</option>
           <option value = "Lacto Ovo Vegetarian">Ovo Lacto Vegetariano</option>
@@ -102,14 +102,14 @@ export default function Home(){
           <option value = "Vegetarian">Vegetariano</option>
       </select>
 
-      <select className="filterDiets" onChange={e => handleOrder(e)}>
-          <option disabled  defaultValue="selected">Ordenar por...</option>
+      <select className={styles.filterDiets} onChange={e => handleOrder(e)}>
+          <option disabled  defaultValue="selected">Order by...</option>
           <option value="asc">A-Z</option>
           <option value="des">Z-A</option>
       </select>
 
-      <select className="filterDiets" id="left" onChange={e => handleOrderScore(e)}>
-          <option disabled defaultValue="selected">Ordenar por Health Score...</option>
+      <select className={styles.filterDiets} id="left" onChange={e => handleOrderScore(e)}>
+          <option disabled defaultValue="selected">Ordenar by Health Score...</option>
           <option value="asc"> - TO + </option>
           <option value="desc"> + TO - </option>
       </select>
@@ -124,11 +124,11 @@ export default function Home(){
       />
     </div>
 
-        <div className="cards">
+        <div className={styles.cards}>
       {
         currentRecipes?.map((c) => (
-          <div key={c.id} >
-                        <Link to = { "/home/" + c.id }>
+          <div className={styles.divCard} key={c.id} >
+                        <Link className={styles.linkCards} to = { "/home/" + c.id }>
                         <Card
                             title = { c.title }
                             image = { c.image }

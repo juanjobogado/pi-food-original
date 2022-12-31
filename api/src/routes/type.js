@@ -13,9 +13,7 @@ const dietsLocal =  [
     "fodmap friendly",
     "whole 30",
     "dairy free",
-    "vegetarian",
-    "lacto vegetarian",
-    "ovo vegetarian"                        
+    "vegetarian"                     
 ];
 
 

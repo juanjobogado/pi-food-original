@@ -16,6 +16,9 @@
     font-size: 100%;
     width: 7%;
   }
+  .btnPag button.active {
+  background-color: red;
+  }
   
   .btnPag button:hover {
     color: rgb(233, 187, 187);

@@ -7,12 +7,12 @@ return (
   <div className="container">
     <div className="containerlanding">
       <div>
-    <h1 >Henry Recipes Juan Bogado</h1>
+   <span>Find or create your recipe.</span>
       </div>
       <div className="btnlandin">
     <Link to = "/home">
       <button className="btnLan">
-        INGRESAR
+        START
       </button>
     </Link>
       </div>

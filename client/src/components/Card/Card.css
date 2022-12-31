@@ -53,14 +53,16 @@
             flex-direction: row;
             justify-content: space-evenly;
             font-size: 115%; 
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            /* font-family: "Comic Sans MS", "Comic Sans", cursive; */
             color: rgb(174, 160, 140);
             width: 100%;
+            text-decoration: none;
             
           }
           h3{
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
-            color: rgb(163, 138, 96); 
+            /* font-family: "Comic Sans MS", "Comic Sans", cursive; */
+            text-shadow: 1px 1px 2px black;
+          color: rgb(163, 138, 96); 
             width: 100%;
             text-decoration: none;
             font-size: 150%;

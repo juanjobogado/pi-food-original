@@ -4,7 +4,8 @@ import { GET_RECIPES, GET_RECIPES_NAME, FILTER_RECIPES_BY_TYPE, ORDER_RECIPES_BY
 export function getRecipes(){
     return async function(dispatch){
         try {
-            const json = await axios.get("https://back-pi-food-production.up.railway.app/recipes");
+            // const json = await axios.get("https://back-pi-food-production.up.railway.app/recipes");
+            const json = await axios.get("http://localhost:3001/recipes");
             return dispatch({
                 type: GET_RECIPES,
                 payload: json.data
@@ -18,7 +19,8 @@ export function getRecipes(){
 export function getRecipesName(title){
     return async function(dispatch){
       try {
-        const json = await axios.get(`https://back-pi-food-production.up.railway.app/recipes?title=${title}`)
+        // const json = await axios.get(`https://back-pi-food-production.up.railway.app/recipes?title=${title}`)
+        const json = await axios.get(`http://localhost:3001/recipes?title=${title}`)
         return dispatch({
           type: GET_RECIPES_NAME,
           payload: json.data
@@ -57,7 +59,8 @@ export function orderByScore(payload){
 export function postRecipe(payload){
   return async function(dispatch){
     try {
-      await axios.post("https://back-pi-food-production.up.railway.app/recipes", payload); 
+      // await axios.post("https://back-pi-food-production.up.railway.app/recipes", payload); 
+      await axios.post("http://localhost:3001/recipes", payload); 
     } catch (error) {
       console.log(error)
     }
@@ -68,7 +71,8 @@ export function postRecipe(payload){
 
 export function getDiets(){
   return async function(dispatch){
-    const json = await axios.get("https://back-pi-food-production.up.railway.app/diets");
+    // const json = await axios.get("https://back-pi-food-production.up.railway.app/diets");
+    const json = await axios.get("http://localhost:3001/diets");
     return dispatch({
       type: GET_DIETS,
       payload: json.data
@@ -79,7 +83,8 @@ export function getDiets(){
 export function getRecipesById(id){
   return async function(dispatch){
     try {
-      const json = await axios.get(`https://back-pi-food-production.up.railway.app/recipes/${id}`);
+      // const json = await axios.get(`https://back-pi-food-production.up.railway.app/recipes/${id}`);
+      const json = await axios.get(`http://localhost:3001/recipes/${id}`);
       return dispatch({
         type: GET_RECIPES_ID,
         payload: json.data
@@ -100,7 +105,8 @@ export function Clean() {
 export function Delete(id){
   return async function(dispatch){
     try {
-      const json = await axios.delete(`https://back-pi-food-production.up.railway.app/recipes/${id}`)
+      // const json = await axios.delete(`https://back-pi-food-production.up.railway.app/recipes/${id}`)
+      const json = await axios.delete(`http://localhost:3001/recipes/${id}`)
       return dispatch({
         type: DELETE,
         payload: json.data,

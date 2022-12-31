@@ -1,0 +1,53 @@
+ .Navbar{
+background-color: rgba(40, 40, 40, 0.95);
+display: flex;
+justify-content: space-between;
+align-items: center;
+ };   
+
+.divNavBarLoad{
+    margin: 15px 10px;
+ }
+
+.btnNavBarLoad{
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: none;
+    background: rgb(21, 21, 21);
+    color: rgb(163, 138, 96);
+    font-weight: bold;
+    cursor:pointer
+}
+
+.divCreateRecipe{
+    margin: 15px 10px;
+}
+
+
+.buttonCreateRecipe{
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: none;
+    background: rgb(21, 21, 21);
+    color: rgb(163, 138, 96);
+    font-weight: bold;
+    cursor:pointer
+
+};
+.LinkCreate{
+    text-decoration: none;
+}
+.divLoading{
+    margin: 15px 10px;
+ }
+
+.btnLanding{
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: none;
+    background: rgb(21, 21, 21);
+    color: rgb(163, 138, 96);
+    font-weight: bold;
+    cursor:pointer
+}
+

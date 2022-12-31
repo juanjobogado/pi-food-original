@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import  SearchBar from "../SearchBar/SearchBar";
 import { filterRecipesByType, orderRecipesByName, getRecipes } from "../../redux/actions";
-import "./NavBar.css";
+import styles from "./NavBar.module.css";
 
 export default function NavBar({pagination}){
     const dispatch = useDispatch();
@@ -29,26 +29,30 @@ export default function NavBar({pagination}){
     return (
 
       
-      <div className="Navbar">
+      <div className={styles.Navbar}>
 
-        <div>
+        <div className={styles.divLoading}>
           <Link to="/">
-            <button>Landing page</button>
+            <button className={styles.btnLanding}>Landing page</button>
           </Link>
         </div>
           
-         <div className="divLoadRecipes">
-         <button className="btnNavBarLoad" id="loadAllRecipes" onClick={e => {handleClick(e)}}>Cargar todas las recetas</button>
+         <div className={styles.divNavBarLoad}>
+         <button className={styles.btnNavBarLoad} id="loadAllRecipes" onClick={e => {handleClick(e)}}>Refresh</button>
          </div>
 
-         <div className="searchBar">
+         <div className={styles.searchBar}>
           <SearchBar />
           </div>
 
-            <div>
-             <Link to="/recipes">
-               <button className="divCreateRecipe" id="createRecipes" type="button">Crear receta</button>
-             </Link>
+            <div className={styles.divCreateRecipe}>
+          <Link className={styles.LinkCreate} to="/recipes">
+               <button className={styles.buttonCreateRecipe} id="createRecipes" type="button">
+               
+                Create recipe
+
+                </button>
+                    </Link>
            </div>
 
       </div>

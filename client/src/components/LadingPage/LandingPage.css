@@ -15,32 +15,44 @@ background-attachment: fixed;
     
   }
 
-  .container h1 {
+  .container span {
     
-    min-width: 500px;
+    /* min-width: 500px; */
     margin: 5%;
-    color: rgba(125, 69, 69, 0.968);
+    color: rgb(163, 138, 96);
     text-shadow: rgb(52, 51, 51) -4px 2px; 
     font-size: 60px;
     margin-bottom: 1%;
-    margin-left: 10%;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    margin-left: 21.5%;
+    display: block;
+    font-family: monospace;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 27ch;
+    animation: typing 2s steps(27), blink .5s infinite step-end alternate ;
+    overflow: hidden;
   }
 
-  .btnlandin{
-    margin-top: 4%;
-    margin-left: 5%;
+  @keyframes typing {
+    from {
+      width: 0
+    }
   }
-
-
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
   .btnLan{
+    margin-top: 100px;
     border-radius: 15px;
     cursor: pointer;
-      color: rgb(105, 69, 69);
+    color: rgb(174, 160, 140);
       border: 4px solid rgb(21, 21, 21) ;
       font-size: 20px;
-      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       background-color: rgba(40, 40, 40, 0.216);
+      padding: 15px;
   }
 
   .btnLan:hover {
