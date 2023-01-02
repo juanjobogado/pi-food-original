@@ -16,8 +16,6 @@ background-attachment: fixed;
   }
 
   .container span {
-    
-    /* min-width: 500px; */
     margin: 5%;
     color: rgb(163, 138, 96);
     text-shadow: rgb(52, 51, 51) -4px 2px; 

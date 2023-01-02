@@ -12,13 +12,6 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       defaultValue: UUIDV4,
       primaryKey: true
-      // --------------
-      // type: DataTypes.UUID,
-      // 
-      // primaryKey: true,
-      // allowNull: false
-      // ----------------
-     
     },
     summary: {
       type: DataTypes.TEXT,
@@ -32,23 +25,14 @@ module.exports = (sequelize) => {
     },
     steps: {
       type: DataTypes.TEXT,
-      // type: DataTypes.ARRAY(DataTypes.JSON),
       allowNull: true,
       defaultValue: "There is no steps"
     },
     image: {
       type: DataTypes.STRING,
-    //   // defaultValue: "There is no image"
     },
     dishTypes: {
       type: DataTypes.STRING
     },
-    // diets: {
-    //   type: DataTypes.ARRAY(DataTypes.STRING),
-    //   //  type: DataTypes.TEXT,
-    //   allowNull: true,
-    //   //  defaultValue: "There is no diet"
-  
-    //  }
   });
 };

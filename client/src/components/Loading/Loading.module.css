@@ -1,27 +1,24 @@
 .Loading {
-    background-image: url("https://www.transparenttextures.com/patterns/black-felt.png");
-    background-size: cover;
-    height: 100vh;
-    width: 215.2vh;
-    display: inline-block;
-    background-attachment:fixed;
-    background-size: cover; 
-    
-  
+  background-image: url("https://www.transparenttextures.com/patterns/black-felt.png");
+  background-size: cover;
+  height: 100vh;
+  width: 215.2vh;
+  display: inline-block;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-.divLoading{
-    align-items: center;
-    margin-top: 250px;
-
+.divLoading {
+  align-items: center;
+  margin-top: 250px;
 }
 
-.gif{
-    width: 150px;
-    height: 150px;
+.gif {
+  width: 150px;
+  height: 150px;
 }
 
-.Loading{
-    color: rgb(174, 160, 140);
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+.Loading {
+  color: rgb(174, 160, 140);
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }

@@ -1,8 +1,7 @@
 .containerHome {
-    /* background-image: url("../images/some\ fruits\ kitchen.jpg"); */
-    /* margin: 0;*/
     
     height: 200vh;
+    width: 100%;
     display: inline-block;
     background-attachment:fixed;
     background-size: cover; 

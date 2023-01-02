@@ -1,170 +1,159 @@
-.containerRecipeCreate{
-background-image: url("../images/fondolanding.jpg");
-width: 100%;
-height: 120%;
-background-size: cover;
-background-position: center;
-position: absolute;
-background-attachment: fixed;
+.containerRecipeCreate {
+  background-image: url("../images/fondolanding.jpg");
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  background-attachment: fixed;
 }
 
+.containerFormAndTitle {
+  background-color: rgba(72, 72, 72, 0.9);
+  padding: 10px 20px 30px 20px;
+  width: 50%;
+  float: left;
+  left: 50%;
+  position: absolute;
+  margin-top: 8px;
+  margin-left: -400px;
+  text-shadow: 1px 1px 2px black;
+  color: rgb(163, 138, 96);
+  font-weight: bold;
 
-.containerFormAndTitle{
-    background-color:rgba(72,72,72,0.9);
-    padding: 10px 20px 30px 20px;
-    width:50%;
-    float: left;
-    left: 50%;
-    position: absolute;
-    margin-top:8px;
-    margin-left: -400px;
-    /* color:rgb(219, 208, 208); */
-    text-shadow: 1px 1px 2px black;
-          color: rgb(163, 138, 96); 
-    font-weight: bold;
-
-    border-radius:7px;
-    -webkit-border-radius:7px;
-    -moz-border-radius:7px;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
 }
 
-.containerFormAndTitle .inputForm{
-    font-size: 15px;  
-    margin-bottom: 2px;
-    font-family: Arial, san-serif;
-    display:flex; 
-    margin-left: 280px;
-    background-color: rgb(40, 40, 40);
-    color: rgb(174, 160, 140);
+.containerFormAndTitle .inputForm {
+  font-size: 15px;
+  margin-bottom: 2px;
+  font-family: Arial, san-serif;
+  display: flex;
+  margin-left: 280px;
+  background-color: rgb(40, 40, 40);
+  color: rgb(174, 160, 140);
 }
 
-.containerFormAndTitle .inputForm:focus{
-    background-color: rgba(46, 45, 45, 0.9);
+.containerFormAndTitle .inputForm:focus {
+  background-color: rgba(46, 45, 45, 0.9);
 }
 
-.containerFormAndTitle .inputFormSteps{
-    font-size: 15px;  
-    margin-bottom: 2px;
-    font-family: Arial, san-serif; 
-        background-color: rgb(40, 40, 40);
-        color: rgb(174, 160, 140);
+.containerFormAndTitle .inputFormSteps {
+  font-size: 15px;
+  margin-bottom: 2px;
+  font-family: Arial, san-serif;
+  background-color: rgb(40, 40, 40);
+  color: rgb(174, 160, 140);
 }
 
-.containerFormAndTitle .inputFormSteps:focus{
-    background-color: rgba(46, 45, 45, 0.9);
+.containerFormAndTitle .inputFormSteps:focus {
+  background-color: rgba(46, 45, 45, 0.9);
 }
 
-.containerFormAndTitle .inputFormSteps{
-    width:100%;
-   height: 40px;
+.containerFormAndTitle .inputFormSteps {
+  width: 100%;
+  height: 40px;
 }
 
-.containerFormAndTitle .buttonForm[type="submit"]{
-    cursor:pointer;
-    width:20%;
-    border:none;
-    background: rgb(21, 21, 21);
-    /* background-image:linear-gradient(bottom, rgb(21, 21, 21); 0%, rgb(21, 21, 21); 52%);
-    background-image:-moz-linear-gradient(bottom, rgb(21, 21, 21); 0%, rgb(21, 21, 21); 52%);
-    background-image:-webkit-linear-gradient(bottom, rgb(21, 21, 21); 0%, rgb(21, 21, 21); 52%); */
-    color:#FFF;
-    margin:0 0 5px;
-    padding: 8px 20px;
-    border-radius: 8px;
-    font-weight: bold;
+.containerFormAndTitle .buttonForm[type="submit"] {
+  cursor: pointer;
+  width: 20%;
+  border: none;
+  background: rgb(21, 21, 21);
+  color: #fff;
+  margin: 0 0 5px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
-.containerFormAndTitle .buttonForm[type="submit"]:hover{
-    /* background-image:linear-gradient(bottom, #ebe498 0%, #ebe498 52%);
-    background-image:-moz-linear-gradient(bottom, #ebe498 0%, #ebe498 52%);
-    background-image:-webkit-linear-gradient(bottom, #ebe498 0%, #ebe498 52%); */
-    background-color:rgba(72,72,72,0.9);
-    -webkit-transition:background 0.3s ease-in-out;
-    -moz-transition:background 0.3s ease-in-out;
-    transition:background-color 0.3s ease-in-out;
-    -webkit-box-shadow: 4px 8px 19px -3px #bbbbbb;
-    box-shadow: 0.5px -0.5px 19px -3px rgb(174, 160, 140);
-    transition:background-color color 0.3s ease-in-out;
-    color: rgb(255, 237, 213);
+.containerFormAndTitle .buttonForm[type="submit"]:hover {
+  background-color: rgba(72, 72, 72, 0.9);
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  -webkit-box-shadow: 4px 8px 19px -3px #bbbbbb;
+  box-shadow: 0.5px -0.5px 19px -3px rgb(174, 160, 140);
+  transition: background-color color 0.3s ease-in-out;
+  color: rgb(255, 237, 213);
 }
 
 .containerFormAndTitle .buttonForm[type="submit"]:active {
-    box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);
- }
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
 
- .inputForm:required, .inputFormSteps:required{
-    box-shadow: none;
-    -moz-box-shadow: none;  
-    -webkit-box-shadow: none;  
-    -o-box-shadow: none;
- }
+.inputForm:required,
+.inputFormSteps:required {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+}
 
- .containerFormAndTitle .required {  
-    font-weight:bold;  
-    color: rgb(252, 241, 220); 
- }
+.containerFormAndTitle .required {
+  font-weight: bold;
+  color: rgb(252, 241, 220);
+}
 
- .dietsContainer {
-    padding: 25px 25px;
-    margin: 40px auto;
-    border: unset;
-    border-radius: 15px;
-    position: relative;
-    font-weight: bold;
-    font-size: 12px;
-    -webkit-box-shadow: 4px 8px 19px -3px #bbbbbb;
-    box-shadow: 0.5px -0.5px 19px -3px rgb(174, 160, 140);
-    transition: all 250ms;
-    overflow: hidden;
-    width: 90%;
-    display:flex;
-    flex-flow: wrap;
-    gap: 2.5rem;
-    justify-content:center;
-    z-index: 0;
-    color: rgb(174, 160, 140);
- }
+.dietsContainer {
+  padding: 25px 25px;
+  margin: 40px auto;
+  border: unset;
+  border-radius: 15px;
+  position: relative;
+  font-weight: bold;
+  font-size: 12px;
+  -webkit-box-shadow: 4px 8px 19px -3px #bbbbbb;
+  box-shadow: 0.5px -0.5px 19px -3px rgb(174, 160, 140);
+  transition: all 250ms;
+  overflow: hidden;
+  width: 90%;
+  display: flex;
+  flex-flow: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  z-index: 0;
+  color: rgb(174, 160, 140);
+}
 
 input[type="checkbox"] {
-    background-color: red;
-    place-content: center;
- 
+  background-color: red;
+  place-content: center;
 }
 
 input[type="checkbox"]::before {
-    content: "";
-    width: 0.65em;
-    height: 0.65em;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em var(--form-control-color);
-    background-color: red;
- 
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  background-color: red;
 }
 
 input[type="checkbox"]:checked::before {
-   transform: scale(1);
-   background-color: red;
+  transform: scale(1);
+  background-color: red;
 }
 
-.backBtn{
-    background-color:rgba(72,72,72,0.9);
-    color: #FFF;
-    padding: 5px;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-left: -735px;
+.backBtn {
+  background-color: rgba(72, 72, 72, 0.9);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: -735px;
 }
-
-
 
 @media only screen and (max-width: 580px) {
-    .containerFormAndTitle{
-       left: 3%;
-       margin-right: 3%;
-       width: 88%;
-       margin-left: 0;
-       padding-left: 3%;
-       padding-right: 3%;
-    }
- }
+  .containerFormAndTitle {
+    left: 3%;
+    margin-right: 3%;
+    width: 88%;
+    margin-left: 0;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}

@@ -1,8 +1,7 @@
 const { Recipe, Type } = require("../../db");
 
 const recipeDbInfo = async () => {
-
-  try{
+  try {
     let allInDB = await Recipe.findAll({
       include: [Type],
     });
@@ -17,13 +16,12 @@ const recipeDbInfo = async () => {
         image: recipe.image,
         dishTypes: recipe.dishTypes,
         diets: allTypes,
-    
       };
     });
     return recipeDB;
-  }catch (error) {
+  } catch (error) {
     console.log(error);
-    }
-  };
+  }
+};
 
 module.exports = recipeDbInfo;
